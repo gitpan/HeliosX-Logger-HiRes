@@ -1,0 +1,2 @@
+ALTER TABLE helios_log_tb
+MODIFY COLUMN log_time DECIMAL(32,6);

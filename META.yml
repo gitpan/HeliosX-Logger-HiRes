@@ -1,0 +1,16 @@
+--- #YAML:1.0
+name:                HeliosX-Logger-HiRes
+version:             0.01_0821
+abstract:            HeliosX::Logger subclass providing high resolution logging for Helios
+license:             perl
+author:              
+    - lajandy at cpan dotorg
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
+    Helios:                        2
+    HeliosX::ExtLoggerService:     0.02
+    Time::HiRes:                   
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

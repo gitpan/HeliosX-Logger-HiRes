@@ -1,0 +1,10 @@
+.includepath
+.project
+Changes
+lib/HeliosX/Logger/HiRes.pm
+Makefile.PL
+MANIFEST
+README
+sql/helios_hires.sql
+t/HeliosX-Logger-HiRes.t
+META.yml                                 Module meta-data (added by MakeMaker)

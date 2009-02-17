@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>HeliosX-Logger-HiRes_trunk</name>
+	<comment></comment>
+	<projects>
+		<project>Helios_public_trunk</project>
+		<project>HeliosX-ExtLoggerService_trunk</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.epic.perleditor.perlbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.epic.perleditor.perlnature</nature>
+	</natures>
+</projectDescription>
