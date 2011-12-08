@@ -1,7 +1,7 @@
 package HeliosX::Logger::HiRes;
 
 use 5.008;
-use base qw(HeliosX::Logger);
+use base qw(Helios::Logger);
 use strict;
 use warnings;
 
@@ -11,36 +11,33 @@ use Time::HiRes qw(time);
 
 use Helios::Error;
 use Helios::LogEntry;
-use HeliosX::Logger::LoggingError;
+use Helios::Error::LoggingError;
 
-our $VERSION = '0.01_0821';
+our $VERSION = '0.02_4931';
 
 our $DOD_RETRY_LIMIT = 5;
 our $DOD_RETRY_INTERVAL = 5;
 
 =head1 NAME
 
-HeliosX::Logger::HiRes - HeliosX::Logger subclass providing high resolution logging for Helios
+HeliosX::Logger::HiRes - Helios::Logger subclass implementing high resolution 
+logging for Helios
 
 =head1 SYNOPSIS
-
- #in your service class
- package MyService;
- use base qw(HeliosX::ExtLoggerService);
  
  # in helios.ini, disable internal logging 
- # and enable HeliosX::Logger::HiRes
  internal_logger=off
+ # and enable HeliosX::Logger::HiRes
  loggers=HeliosX::Logger::HiRes
 
 =head1 DESCRIPTION
 
-Unlike some other HeliosX::Logger subclasses, HeliosX::Logger::HiRes intends 
+Unlike some other Helios::Logger subclasses, HeliosX::Logger::HiRes intends 
 not to link Helios with external logging systems, but to enhance Helios's own 
 internal logging system by providing much more precise timestamping of log 
 messages via the Time::HiRes module.  
 
-The Helios base system's logging subsystem only has resolution to a second, 
+The Helios base system's logging subsystem only has resolution to the second, 
 which keeps it consistent with the underlying TheSchwartz queueing system.  
 But if your collective runs many short-lived (sub-second runtime) jobs, the 
 ordering of log messages can easily get confused, with some log entries 
@@ -105,7 +102,7 @@ sub logMsg {
             $d->insert($entry);
 		} otherwise {
 			if ($retryCount > $DOD_RETRY_LIMIT ) { 
-				throw HeliosX::Logger::LoggingError( $_[0]->text() );
+				throw Helios::Error::LoggingError( $_[0]->text() );
 			}
 			sleep $DOD_RETRY_INTERVAL;
 			$retryCount++;
@@ -142,7 +139,7 @@ __END__
 
 =head1 SEE ALSO
 
-L<HeliosX::ExtLoggerService>, L<HeliosX::Logger>, L<Time::HiRes>
+L<Helios::Service>, L<Helios::Logger>, L<Time::HiRes>
 
 =head1 AUTHOR
 
@@ -150,7 +147,7 @@ Andrew Johnson, E<lt>lajandy at cpan dotorgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009 by Andrew Johnson
+Copyright (C) 2009-11 by Andrew Johnson
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.0 or,

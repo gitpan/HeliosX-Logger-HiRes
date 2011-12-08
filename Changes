@@ -1,5 +1,7 @@
 Revision history for Perl extension HeliosX::Logger::HiRes.
 
+0.02  Wed Dec  7 19:20:00 2011
+	-Upgraded to work with Helios::Logger in Helios 2.30
 0.01  Mon Feb 16 23:19:18 2009
 	- original version; created by h2xs 1.23 with options
 		-XA -b 5.8.0 HeliosX::Logger::HiRes
